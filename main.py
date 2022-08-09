@@ -119,7 +119,6 @@ class UserInfo:
                 conn.commit()
 
                 if self.user.phones:
-                    print('in phones')
                     for phone in self.user.phones:
                         user_id = self.get_user_id(cur)
                         cur.execute("""
@@ -143,7 +142,6 @@ class UserInfo:
                             """, (value, user_id))
                             conn.commit()
                         else:
-                            print(f'phone ids: {user_phone_ids}')
                             cur.execute("""
                             UPDATE UserPhone 
                             SET phone = %s
@@ -197,7 +195,6 @@ class UserInfo:
                 conn.commit()
         conn.close()
 
-
 if __name__ == '__main__':
     db_obj = DBObject('userinfo_db', 'postgres', 'lala')
    # db_obj.create_user_db()
@@ -238,10 +235,10 @@ if __name__ == '__main__':
 
     search_dict4 = {'surname': 'brr'}
 
-    db_obj.find_user(search_dict1)
-    db_obj.find_user(search_dict2)
-    db_obj.find_user(search_dict3)
-    db_obj.find_user(search_dict4)
+    #db_obj.find_user(search_dict1)
+    #db_obj.find_user(search_dict2)
+    #db_obj.find_user(search_dict3)
+    #db_obj.find_user(search_dict4)
 
 
 
